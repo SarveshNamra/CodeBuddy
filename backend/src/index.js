@@ -29,8 +29,10 @@ app.use("/api/v1/execute-code", executionRoute);
 app.use("/api/v1/submission", submissionRoutes);
 app.use("/api/v1/playlist", playlistRoutes);
 
-const PORT = process.env.PORT || 8080;
+// const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, () => {
-    console.log(`server is running on port ${PORT}`)
-});
+// app.listen(PORT, () => {
+//     console.log(`server is running on port ${PORT}`)
+// });
+
+export default app
