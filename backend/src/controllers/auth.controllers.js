@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import { db } from "../libs/db.js";
-import { userRole } from "@prisma/client";
+import { UserRole } from "@prisma/client";
 import jwt from "jsonwebtoken";
 
 export const register = async(req, res) => {
@@ -35,7 +35,7 @@ export const register = async(req, res) => {
                 email,
                 password: hashedPassword,
                 name,
-                role: userRole.USER
+                role: UserRole.USER
             }
         });
 
