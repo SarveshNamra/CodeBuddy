@@ -12,10 +12,24 @@ dotenv.config();
 
 const app = express();
 
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://code-buddy-frontend.vercel.app"
+];
+
 app.use(cors({
-    origin: "https://code-buddy-frontend-imvs4kjm8-sarveshnamras-projects.vercel.app",
-    credentials: true,
+    origin: function (origin, callback) {
+        if (!origin) return callback(null, true);
+
+        if (allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+        } else {
+        callback(new Error("Not allowed by CORS"));
+        }
+    },
+    credentials: true
 }));
+
 app.use(express.json());
 app.use(cookieParser());
 
