@@ -13,7 +13,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: "https://your-frontend-url.vercel.app",
+    origin: "https://code-buddy-frontend-imvs4kjm8-sarveshnamras-projects.vercel.app",
     credentials: true,
 }));
 app.use(express.json());
