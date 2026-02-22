@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import db from "../libs/db.js";
-import { userRole } from "../generated/prisma/index.js";
+import { userRole } from "@prisma/client";
 import jwt from "jsonwebtoken";
 
 export const register = async(req, res) => {
