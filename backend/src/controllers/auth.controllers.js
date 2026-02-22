@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import db from "../libs/db.js";
+import { db } from "../libs/db.js";
 import { userRole } from "@prisma/client";
 import jwt from "jsonwebtoken";
 
