@@ -12,23 +12,18 @@ dotenv.config();
 
 const app = express();
 
-const allowedOrigins = [
+app.use(cors({
+  origin: [
     "http://localhost:5173",
     "https://code-buddy-frontend.vercel.app"
-];
-
-app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin) return callback(null, true);
-
-        if (allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true);
-        } else {
-        callback(new Error("Not allowed by CORS"));
-        }
-    },
-    credentials: true
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
+// Important for preflight
+app.options("*", cors());
 
 app.use(express.json());
 app.use(cookieParser());
